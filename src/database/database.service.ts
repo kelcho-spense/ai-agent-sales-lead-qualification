@@ -17,8 +17,8 @@ export class DatabaseService implements OnModuleInit {
 
   constructor(private configService: ConfigService) {
     this.client = new CosmosClient({
-      endpoint: this.configService.get<string>('AZURE_COSMOS_DB_ENDPOINT'),
-      key: this.configService.get<string>('AZURE_COSMOS_DB_KEY'),
+      endpoint: this.configService.get<string>('AZURE_COSMOS_DB_ENDPOINT')!,
+      key: this.configService.get<string>('AZURE_COSMOS_DB_KEY')!,
       diagnosticLevel:
         this.configService.get<string>('NODE_ENV') != 'production'
           ? CosmosDbDiagnosticLevel.debug
